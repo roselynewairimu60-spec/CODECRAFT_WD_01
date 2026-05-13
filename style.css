@@ -1,0 +1,167 @@
+*{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 200vh;
+    }
+
+    /* FIXED NAVIGATION MENU */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+      padding: 1rem 2rem;
+    }
+
+    /* SCROLLED STYLE - changes when user scrolls */
+    .navbar.scrolled {
+      background: #1a1a2e;
+      padding: 0.7rem 2rem;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .navbar.scrolled .nav-link {
+      color: #f0f0f0;
+    }
+
+    .navbar.scrolled .nav-link:hover {
+      color: #f39c12;
+    }
+
+    .navbar.scrolled .logo {
+      color: #f39c12;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      padding: 0.5rem 0;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    /* HOVER EFFECT - changes color and adds animation */
+    .nav-link:hover {
+      color: #e74c3c;
+      transform: translateY(-2px);
+    }
+
+    /* underline animation on hover */
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: #e74c3c;
+      transition: width 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Different hover style for scrolled state */
+    .navbar.scrolled .nav-link::after {
+      background: #f39c12;
+    }
+
+    /* Content styling */
+    .content {
+      max-width: 1000px;
+      margin: 100px auto 50px;
+      padding: 2rem;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.8;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .section {
+      margin: 3rem 0;
+      padding: 2rem;
+      background: #f8f9fa;
+      border-radius: 15px;
+    }
+
+    .section h2 {
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #333;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: white;
+        width: 70%;
+        height: 100vh;
+        padding: 2rem;
+        gap: 1.5rem;
+        transition: 0.3s;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+      }
+      .navbar.scrolled .nav-links {
+        background: #1a1a2e;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+    }
